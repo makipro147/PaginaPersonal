@@ -74,7 +74,7 @@ export function Footer() {
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-white mb-2">
                   <span className="text-red-500">{'<'}</span>
-                  DevPortfolio
+                  Desarrollador FullStack
                   <span className="text-red-500">{'/>'}</span>
                 </h3>
                 <p className="text-gray-400">
@@ -86,11 +86,11 @@ export function Footer() {
               <div className="space-y-3 text-gray-400">
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-red-500" />
-                  <span>contacto@devportfolio.com</span>
+                  <span>rojasmichael148@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-red-500" />
-                  <span>+51 999 123 456</span>
+                  <span>+51 921 866 613</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-red-500" />

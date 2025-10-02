@@ -25,19 +25,19 @@ const experiences = [
   {
     role: "Full Stack Developer",
     company: "Freelancer",
-    period: "2022 - Presente",
+    period: "2023 - Presente",
     description: "Desarrollo de aplicaciones web completas para diversos clientes, desde startups hasta empresas establecidas."
   },
   {
     role: "Frontend Developer",
     company: "TechStart Inc.",
-    period: "2021 - 2022",
+    period: "2023 - 2025",
     description: "Especializado en el desarrollo de interfaces de usuario modernas y responsive con React y Next.js."
   },
   {
     role: "Junior Developer",
     company: "WebSolutions",
-    period: "2020 - 2021",
+    period: "2023 - 2025",
     description: "Desarrollo y mantenimiento de sitios web corporativos usando tecnologías modernas."
   }
 ];
