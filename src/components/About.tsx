@@ -108,7 +108,7 @@ export function About() {
 
                 <div className="space-y-4 text-gray-300">
                   <p>
-                    Con más de 1 año de experiencia en desarrollo web, me especializo en crear
+                    Con más de 2 años de experiencia en desarrollo web, me especializo en crear
                     aplicaciones modernas y escalables utilizando las últimas tecnologías.
                   </p>
                   <p>

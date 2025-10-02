@@ -1,43 +1,12 @@
 import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description: "Plataforma completa de comercio electrónico con carrito de compras, pagos integrados y panel de administración.",
-    technologies: ["Next.js", "Supabase", "Stripe", "Tailwind CSS"],
-    image: "https://images.unsplash.com/photo-1722596627369-a743837c7176?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzU5MzQzNjk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    liveUrl: "#",
-    githubUrl: "#",
-    complexity: "Alta"
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    description: "Aplicación de gestión de tareas con colaboración en tiempo real, notificaciones y dashboard analítico.",
-    technologies: ["React", "Firebase", "Material-UI", "Node.js"],
-    image: "https://images.unsplash.com/photo-1753998941587-5befe71f4572?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBwcm9ncmFtbWluZyUyMGZ1dHVyaXN0aWN8ZW58MXx8fHwxNzU5MzY0MDM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    liveUrl: "#",
-    githubUrl: "#",
-    complexity: "Media"
-  },
-  {
-    id: 3,
-    title: "Corporate Website",
-    description: "Sitio web corporativo moderno con CMS personalizado, optimización SEO y diseño responsive.",
-    technologies: ["Next.js", "Sanity CMS", "Framer Motion", "Vercel"],
-    image: "https://images.unsplash.com/photo-1640109341881-1cd3eaf50909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjBzZXR1cHxlbnwxfHx8fDE3NTkzMjUxODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    liveUrl: "#",
-    githubUrl: "#",
-    complexity: "Baja"
-  }
-];
+import { projectApi } from '../services/projectApi';
+import { type Project } from '../data/projects';
 
 export function Projects() {
   const containerRef = useRef<HTMLElement>(null);
@@ -45,9 +14,17 @@ export function Projects() {
     target: containerRef,
     offset: ["start end", "end start"]
   });
-
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const data = await projectApi.getProjects();
+      setProjects(data);
+    };
+    fetchProjects();
+  }, []);
 
   return (
     <section ref={containerRef} id="proyectos" className="py-20 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
@@ -180,7 +157,7 @@ export function Projects() {
           </p>
           <Button
             className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3"
-            onClick={() => window.open('https://github.com', '_blank')}
+            onClick={() => window.open('https://github.com/makipro147', '_blank')}
           >
             <Github className="mr-2 h-4 w-4" />
             Ver GitHub Completo

@@ -1,68 +1,25 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Badge } from './ui/badge';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  CheckCircle,
-  Github,
-  Linkedin,
-  Twitter
-} from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { Send, CheckCircle } from 'lucide-react';
+import { contactInfo, socialLinks, type ContactInfo, type SocialLink } from '../data/contactInfo';
+import { contactApi } from '../services/contactApi';
 
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "contacto@devportfolio.com",
-    href: "mailto:contacto@devportfolio.com"
-  },
-  {
-    icon: Phone,
-    label: "Teléfono",
-    value: "+51 999 123 456",
-    href: "tel:+51999123456"
-  },
-  {
-    icon: MapPin,
-    label: "Ubicación",
-    value: "Lima, Perú",
-    href: "#"
-  }
-];
-
-const socialLinks = [
-  {
-    icon: Github,
-    label: "GitHub",
-    href: "https://github.com",
-    color: "hover:text-gray-400"
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn", 
-    href: "https://linkedin.com",
-    color: "hover:text-blue-400"
-  },
-  {
-    icon: Twitter,
-    label: "Twitter",
-    href: "https://twitter.com",
-    color: "hover:text-blue-400"
-  }
-];
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  projectType: string;
+}
 
 export function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
@@ -76,7 +33,6 @@ export function Contact() {
     target: containerRef,
     offset: ["start end", "end start"]
   });
-
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -91,17 +47,8 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simular envío del formulario
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      toast("¡Mensaje enviado!", {
-        description: "Te contactaré pronto para discutir tu proyecto.",
-        action: {
-          label: "Cerrar",
-          onClick: () => console.log("Toast closed")
-        }
-      });
-      
+      await contactApi.submitContactForm(formData);
       // Limpiar formulario
       setFormData({
         name: '',
@@ -111,9 +58,7 @@ export function Contact() {
         projectType: ''
       });
     } catch (error) {
-      toast("Error al enviar", {
-        description: "Por favor, intenta nuevamente o contáctame directamente."
-      });
+      console.error("Error submitting form:", error);
     } finally {
       setIsSubmitting(false);
     }

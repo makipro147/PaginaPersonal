@@ -49,7 +49,7 @@ export function Navigation() {
             className="text-white text-xl font-bold"
           >
             <span className="text-indigo-500">{'<'}</span>
-            DevPortfolio
+            Portafolio Personal
             <span className="text-indigo-500">{'/>'}</span>
           </motion.div>
 

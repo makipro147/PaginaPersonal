@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { ChevronDown, Download } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { cvService } from '../services/cvService';
 
 export function Hero() {
   const scrollToProjects = () => {
@@ -9,14 +10,6 @@ export function Hero() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const downloadCV = () => {
-    // En un proyecto real, aquí cargarías el PDF desde tu servidor
-    const link = document.createElement('a');
-    link.href = '#'; // Aquí iría la URL real del PDF
-    link.download = 'CV_FullStack_Developer.pdf';
-    link.click();
   };
 
   return (
@@ -108,7 +101,7 @@ export function Hero() {
               </Button>
               
               <Button
-                onClick={downloadCV}
+                onClick={cvService.downloadCV}
                 variant="outline"
                 className="border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
               >

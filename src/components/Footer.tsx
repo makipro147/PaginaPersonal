@@ -10,7 +10,8 @@ import {
   MapPin,
   ArrowUp,
   Code2,
-  Heart
+  Heart,
+  Instagram
 } from 'lucide-react';
 
 const quickLinks = [
@@ -31,9 +32,9 @@ const services = [
 ];
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
+  { icon: Github, href: 'https://github.com/makipro147', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+  { icon: Instagram, href: 'https://www.instagram.com/neko_jemkiller_band/', label: 'Instagram' },
 ];
 
 export function Footer() {
@@ -93,7 +94,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-red-500" />
-                  <span>Lima, Perú</span>
+                  <span>Trujillo, Perú</span>
                 </div>
               </div>
             </motion.div>
@@ -194,7 +195,7 @@ export function Footer() {
             >
               © 2024 DevPortfolio. Hecho con
               <Heart className="w-4 h-4 text-red-500 fill-current" />
-              en Lima, Perú
+              en Trujillo, Perú
             </motion.div>
 
             <motion.div
