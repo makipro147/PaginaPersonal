@@ -69,7 +69,7 @@ export function Hero() {
               className="space-y-4"
             >
               <p className="text-xl md:text-2xl text-gray-300">
-                Especializado en desarrollo web moderno con
+                Especializado en desarrollo web moderno priorizando el diseño y la compatibilidad ante todo!!!!
               </p>
               
               <div className="flex flex-wrap gap-3">

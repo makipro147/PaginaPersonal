@@ -42,12 +42,7 @@ const socialLinks: SocialLink[] = [
     href: "https://github.com/makipro147",
     color: "hover:text-gray-400"
   },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: "https://linkedin.com",
-    color: "hover:text-blue-400"
-  },
+ 
   {
     icon: Instagram,
     label: "Instagram",

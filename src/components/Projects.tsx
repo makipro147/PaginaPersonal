@@ -71,7 +71,7 @@ export function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">  
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -127,18 +127,9 @@ export function Projects() {
                       onClick={() => window.open(project.liveUrl, '_blank')}
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      Ver Demo
+                      Visitar
                     </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-gray-600 text-gray-300 hover:bg-gray-700"
-                      onClick={() => window.open(project.githubUrl, '_blank')}
-                    >
-                      <Github className="mr-2 h-4 w-4" />
-                      Código
-                    </Button>
-                  </div>
+                                   </div>
                 </CardContent>
               </Card>
             </motion.div>

@@ -45,7 +45,7 @@ export const services: Service[] = [
     id: 2,
     title: "Aplicación Web Interactiva",
     description: "Aplicación web con funcionalidades avanzadas y backend personalizado, ideal para startups o herramientas internas.",
-    price: "1000 - 1600",
+    price: "1200 - 1800",
     currency: "soles",
     features: [
       "Base de datos personalizada (Postgres/Supabase/Firebase)",
@@ -63,7 +63,7 @@ export const services: Service[] = [
     id: 3,
     title: "E-Commerce Completo",
     description: "Tienda online completa, de alto rendimiento, con carrito, pagos y gestión de inventario robusta.",
-    price: "1800 - + ",
+    price: "2000 - + ",
     currency: "soles",
     features: [
       "Catálogo de productos escalable",
